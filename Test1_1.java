@@ -3,6 +3,7 @@ import java.util.*;
 /**
  * cc150习题。
  * 1.1 实现一个算法，确定一个字符串的所有字符是否全都不同。假设不允许使用额外的数据结构又该如何处理?
+ * complexity: HasDuplicatedChar O(n) O(n)  HasDuplicatedCharV2 O(n2) 0(1)
  *
  * @author wil
  * @version 1.1
@@ -19,8 +20,8 @@ public class Test1_1 {
                 "哈哈",
         };
         for (String s: testCases) {
-            //boolean result = obj.HasDuplicatedChar(s);
-            boolean result = obj.HasDuplicatedCharV2(s);
+            //boolean result = obj.hasDuplicatedChar(s);
+            boolean result = obj.hasDuplicatedCharV2(s);
             System.out.printf("input:%s, output:%s\n", s, result);
         }
     }
@@ -30,7 +31,7 @@ public class Test1_1 {
      * @param s
      * @return
      */
-    public boolean HasDuplicatedChar(String s) {
+    public boolean hasDuplicatedChar(String s) {
         if (s == null) {
             return false;
         }
@@ -50,7 +51,7 @@ public class Test1_1 {
      * @param s
      * @return
      */
-    public boolean HasDuplicatedCharV2(String s) {
+    public boolean hasDuplicatedCharV2(String s) {
         if (s == null) {
             return false;
         }
