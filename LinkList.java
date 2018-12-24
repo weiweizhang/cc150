@@ -2,22 +2,25 @@
  * 链表实现。
  */
 public class LinkList {
-    public int data;
-    public LinkList next = null;   // 初始化为null
+    public Node head = null;   // 初始化为null
 
     /**
      * 构造函数。
-     * @param data
      */
-    public LinkList(int data) {
-        this.data = data;
+    public LinkList() {
     }
 
     public void appendToTail(int data) {
-        LinkList obj = new LinkList(data);
+        Node obj = new Node(data);
+
+        // 空链表
+        if (head == null) {
+            head = obj;
+            return;
+        }
 
         // 找到结尾
-        LinkList n = this;
+        Node n = head;
         while (n.next != null) {
             n = n.next;
         }
@@ -26,12 +29,12 @@ public class LinkList {
         n.next = obj;
     }
 
-    public LinkList deleteNode(LinkList head, int data) {
-        LinkList n = head;
+    public void deleteNode(int data) {
+        Node n = head;
 
         // 特殊处理，第一个就满足条件
         if (n.data == data) {
-            return n.next;
+            head = n.next;
         }
         while (n.next != null) {
             if (n.next.data == data) {
@@ -40,11 +43,10 @@ public class LinkList {
             }
             n = n.next;
         }
-        return head;
     }
 
     public void traverse() {
-        LinkList n = this;
+        Node n = head;
         while (n != null) {
             System.out.printf("%d ", n.data);
             n = n.next;
@@ -53,14 +55,15 @@ public class LinkList {
     }
 
     public static void main(String[] args) {
-        LinkList n = new LinkList(1);
+        LinkList n = new LinkList();
+        n.appendToTail(1);
         n.appendToTail(2);
         n.appendToTail(3);
         n.appendToTail(4);
         n.appendToTail(5);
         n.traverse();
-        LinkList a = n.deleteNode(n, 1);
-        a.traverse();
+        n.deleteNode(1);
+        n.traverse();
     }
 
 }

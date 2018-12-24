@@ -10,11 +10,11 @@ public class T2_3 {
         // test cases
         int[] a = {1, 2, 3, 4, 5, 5, 6};
         // create linklist
-        LinkList ll = new LinkList(a[0]);
-        for (int i = 1; i < a.length; i++) {
+        LinkList ll = new LinkList();
+        for (int i = 0; i < a.length; i++) {
             ll.appendToTail(a[i]);
         }
-        LinkList n = ll;
+        Node n = ll.head;
         int i = 0;
         while (n != null) {
             n = n.next;
@@ -22,11 +22,11 @@ public class T2_3 {
             if (i == 3) break;
         }
         ll.traverse();
-        t.deleteNode(n);
+        t.deleteNode(ll, n);
         ll.traverse();
     }
 
-    public void deleteNode(LinkList n) {
+    public void deleteNode(LinkList ll, Node n) {
         if (n == null) return;
         if (n.next == null) return;
 

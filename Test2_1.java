@@ -12,8 +12,8 @@ public class Test2_1 {
         int[][] testCases = {{1}, {1,2,3}, {2,2,2}, {1,2,3,4,5,5,6}};
         for (int[] a: testCases) {
             // create linklist
-            LinkList ll = new LinkList(a[0]);
-            for (int i = 1; i < a.length; i++) {
+            LinkList ll = new LinkList();
+            for (int i = 0; i < a.length; i++) {
                 ll.appendToTail(a[i]);
             }
             // delete duplicate
@@ -22,7 +22,7 @@ public class Test2_1 {
             //ll.traverse();
 
             ll.traverse();
-            t.deleteDupV2(ll);
+            t.deleteDupV2(ll.head);
             ll.traverse();
         }
     }
@@ -33,13 +33,13 @@ public class Test2_1 {
      * 时间：O(n)
      * 空间：O(n)
      */
-    public void deleteDup(LinkList head) {
+    public void deleteDup(LinkList ll) {
         // check input
-        if (head == null) return;
+        if (ll.head == null) return;
 
         HashSet<Integer> set = new HashSet<>();
-        LinkList n = head;
-        LinkList pre = null;
+        Node n = ll.head;
+        Node pre = null;
         while (n != null) {
             if (set.contains(n.data)) {
                 pre.next = n.next;
@@ -58,12 +58,12 @@ public class Test2_1 {
      * 时间：O(n2)
      * 空间：O(n)
      */
-    public void deleteDupV2(LinkList head) {
+    public void deleteDupV2(Node head) {
         // check input
         if (head == null) return;
 
         int headData = head.data;
-        LinkList n = head;
+        Node n = head;
         while (n.next != null) {
             if (n.next.data == headData) {
                 n.next = n.next.next;
