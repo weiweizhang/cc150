@@ -4,6 +4,7 @@ import java.util.Stack;
 /**
  * 二叉查找树。
  * 手撸7种遍历大法。
+ * 递归遍历时间复杂度O(n),空间复杂度O(logn),因为如果是平衡树最大递归的层数为logn，需要logn的栈空间。
  */
 public class BinaryTree {
     TreeNode root = null;
