@@ -62,7 +62,7 @@ public class LinkList {
         n.appendToTail(4);
         n.appendToTail(5);
         n.traverse();
-        n.deleteNode(1);
+        n.deleteNode(5);
         n.traverse();
     }
 
